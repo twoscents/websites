@@ -7580,13 +7580,13 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
 
 //The next two are responsible for loading stuff for desktop or mobile
 //most of the stuff for mobile is default theme code
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 799px) {
   .show-desktop {
     display: none !important;
   }
 }
 
-  @media only screen and (min-width: 769px) {
+  @media only screen and (min-width: 800px) {
   .hide-desktop {
     display: none !important;
   }
@@ -7605,6 +7605,51 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   margin: 0px 0;
 }
 
+#header_nav_liquid,
+#header_nav_liquid2{
+  font-size: 1.2em;
+  padding: 3px 2px;
+  //border-bottom-color: $color-text;
+  //border-bottom-color: none;
+  //original value
+  //border-bottom: 1px solid transparent;
+  //border-bottom: 1px solid;
+  border-bottom: none;
+  text-transform: uppercase;
+  //this definitely ^ looks better and is a project for another time
+  transition: all 0.5s ease;
+}
+
+#header_nav_liquid:active,
+#header_nav_liquid2:active{
+  border-bottom-color: #69727b;
+  border-bottom: 1px solid;
+}
+
+#header_nav_liquid:hover,
+#header_nav_liquid2:hover{
+  border-bottom-color: #69727b;
+  border-bottom: 1px solid;
+  text-shadow: 0 0 5px #69727b;
+}
+/*
+.site-header__icon{
+    transition: all 0.5s ease;
+}
+
+.site-header__icon:hover{
+  box-shadow: 0 0 5px #69727b;
+}
+*/
+
+/*
+.liquid-array-nav:hover{
+  border-bottom-color: #000;
+  border-bottom: 1px solid;
+  text-shadow: 0 0 5px #000;//#69727b;
+}
+*/
+
 .hero-inner-custom {
   position: relative;
   display: table-cell;
@@ -7622,14 +7667,128 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   margin-right: 20px;
   margin-bottom: -60px;
 }
-/*
+
+.hero-image-text-big, 
+.hero-image-text-small {
+  //color: $color-overlay-title-text;
+  //color: #fff;
+}
+
 .hero-image-text-big {
-  font-size: 4.8em;
+  //color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  //font-size: 4.8em;
+  //color: $color-overlay-title-text;
+  //original value
+  //text-shadow: 0 0 4px $color-text-shadow;
+  //text-shadow: initial;
+  //text-shadow: 0 0 6px #000000;
+  text-shadow: 0 0 6px #FFFFFF;
 }
 
 .hero-image-text-small {
-  font-size: 1.8em;
+  color: #fff !important;
+  //font-size: 1.8em;
+  //original value
+  text-shadow: 0 0 4px #000;
+  //text-shadow: 0 0 6px #FFFFFF;
 }
+
+#hero-image-text-big-id {
+  //color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  //font-size: 4.8em;
+  color: $color-overlay-title-text !important;
+  //color: #69727b;
+  //original value
+  //text-shadow: 0 0 4px $color-text-shadow;
+  //text-shadow: initial;
+  //text-shadow: 0 0 6px #000000;
+  text-shadow: 1 1 20px #FFFFFF;
+  text-shadow: -1 -1 20px #FFFFFF;
+  text-shadow: 0 0 5px #000;
+}
+
+#hero-image-text-small-id {
+  color: #fff !important;
+  //font-size: 1.8em;
+  //original value
+  text-shadow: 0 0 4px #000;
+  //text-shadow: 0 0 6px #FFFFFF;
+  p {
+    //color: $color-overlay-title-text;
+    color: #fff !important;
+  }
+}
+
+#shopify-section-header > div > header{
+  box-shadow: -2px -2px 3px 2px #999;
+  box-shadow: -2px 2px 3px 2px #999;
+}
+
+#PageContainer{
+  margin-top: 60px;
+}
+
+@media only screen and (max-width: 799px) {
+  .site-header__logo img {
+    margin-top: -80px;
+  }
+}
+
+
+
+@media only screen and (max-width: 749px) {
+  #PageContainer{
+    margin-top:50px;
+  }
+  #shopify-section-header > div > header.site-header{
+    height: 50px !important;
+    max-height: 50px !important;
+  }
+  div.hide-desktop{
+    height: 50px !important;
+    max-height: 50px !important;
+  }
+  .site-header__logo img {
+    height: 50px !important;
+    max-height: 50px !important;
+    width: 50px !important;
+    max-width: 50px !important;
+    margin-top: 0;
+  }
+}
+
+
+
+
+
+/*
+.mega-title,
+.mega-subtitle {
+  color: $color-overlay-title-text;
+  .hero & {
+    text-shadow: 0 0 4px $color-text-shadow;
+  }
+  @include media-query($medium-up) {
+    text-shadow: 0 0 4px $color-text-shadow;
+  }
+}
+
+.mega-title {
+  
+}
+
+.mega-title--large {
+  font-size: em($font-size-header + 8);
+
+  @include media-query($medium-up) {
+    font-size: em(floor($font-size-header * 2.5));
+  }
+}
+
 */
 
 
@@ -7649,47 +7808,100 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
 
 
 
+//fidelity should be how many pixels apart you want each change
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{% assign fidelity = 20.0 %}
 
 
 //responsive header font sizes
 //accomplished through a lot of @media only screen css
 //created by a liquid loop
 
-#header_nav_liquid{
-  font-size: 1.2em;
-  padding: 3px 2px;
-}
-
-{% assign i_start = 0 %}
-{% assign i_end = 200 %}
 {% assign scr_start = 1500.0 %}
 {% assign scr_end = 850.0 %} 
 {% assign txt_start = 1.2 %}
 {% assign txt_end = 0.8 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign txt_inc = txt_start | minus: txt_end %} 
-{% assign txt_inc = txt_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign txt_inc = txt_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign txt_dec = i | times: txt_inc %}
+  {% assign txt_size = txt_start | minus: txt_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+      #header_nav_liquid{
+        font-size: {{ txt_size }}em;
+      }
+	}
+  
+{% endfor %}
+
+//responsive header font sizes
+//accomplished through a lot of @media only screen css
+//created by a liquid loop
+
+{% assign scr_start = 1500.0 %}
+{% assign scr_end = 850.0 %} 
+{% assign txt_start = 1.2 %}
+{% assign txt_end = 0.8 %} 
+
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign txt_inc = txt_start | minus: txt_end %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign txt_inc = txt_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign txt_dec = i | times: txt_inc %}
+  {% assign txt_size = txt_start | minus: txt_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+      #header_nav_liquid{
+        font-size: {{ txt_size }}em;
+      }
+	}
+  
+{% endfor %}
+
+//responsive header font sizes
+//accomplished through a lot of @media only screen css
+//created by a liquid loop
+
+{% assign scr_start = 1500.0 %}
+{% assign scr_end = 850.0 %} 
+{% assign txt_start = 1.2 %}
+{% assign txt_end = 0.8 %} 
+
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign txt_inc = txt_start | minus: txt_end %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign txt_inc = txt_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7712,22 +7924,54 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
 //created by a liquid loop
 
 .site-nav-custom-right {
-    padding-right: 60%;
+    padding-right: 73%;
 }
 
+{% assign scr_start = 1900.0 %}
+{% assign scr_end = 1800.0 %} 
+{% assign mgn_start = 73.0 %}
+{% assign mgn_end = 78.0 %} 
+
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
 {% assign i_start = 0 %}
-{% assign i_end = 20 %}
+{% assign i_end = i_end | round %}
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
 {% assign scr_start = 1800.0 %}
 {% assign scr_end = 1700.0 %} 
-{% assign mgn_start = 63.0 %}
-{% assign mgn_end = 67.0 %} 
+{% assign mgn_start = 78.0 %}
+{% assign mgn_end = 84.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7745,19 +7989,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 20 %}
+
 {% assign scr_start = 1700.0 %}
 {% assign scr_end = 1600.0 %} 
-{% assign mgn_start = 67.0 %}
-{% assign mgn_end = 70.0 %} 
+{% assign mgn_start = 84.0 %}
+{% assign mgn_end = 84.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7775,19 +8021,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 20 %}
+
 {% assign scr_start = 1600.0 %}
 {% assign scr_end = 1550.0 %} 
-{% assign mgn_start = 70.0 %}
-{% assign mgn_end = 72.0 %} 
+{% assign mgn_start = 84.0 %}
+{% assign mgn_end = 84.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7805,19 +8053,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 20 %}
+
 {% assign scr_start = 1550.0 %}
 {% assign scr_end = 1500.0 %} 
-{% assign mgn_start = 72.0 %}
-{% assign mgn_end = 75.0 %} 
+{% assign mgn_start = 84.0 %}
+{% assign mgn_end = 84.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7835,19 +8085,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 10 %}
+
 {% assign scr_start = 1500.0 %}
 {% assign scr_end = 1450.0 %} 
-{% assign mgn_start = 75.0 %}
-{% assign mgn_end = 76.0 %} 
+{% assign mgn_start = 84.0 %}
+{% assign mgn_end = 82.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7865,19 +8117,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 10 %}
+
 {% assign scr_start = 1450.0 %}
 {% assign scr_end = 1400.0 %} 
-{% assign mgn_start = 76.0 %}
-{% assign mgn_end = 72.0 %} 
+{% assign mgn_start = 82.0 %}
+{% assign mgn_end = 80.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7895,19 +8149,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 10 %}
+
 {% assign scr_start = 1400.0 %}
 {% assign scr_end = 1350.0 %} 
-{% assign mgn_start = 72.0 %}
-{% assign mgn_end = 69.0 %} 
+{% assign mgn_start = 80.0 %}
+{% assign mgn_end = 74.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7925,19 +8181,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 20 %}
+
 {% assign scr_start = 1350.0 %}
 {% assign scr_end = 1200.0 %} 
-{% assign mgn_start = 69.0 %}
-{% assign mgn_end = 62.0 %} 
+{% assign mgn_start = 74.0 %}
+{% assign mgn_end = 68.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7955,19 +8213,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 20 %}
+
 {% assign scr_start = 1200.0 %}
 {% assign scr_end = 1100.0 %} 
-{% assign mgn_start = 62.0 %}
-{% assign mgn_end = 58.0 %} 
+{% assign mgn_start = 68.0 %}
+{% assign mgn_end = 67.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -7985,49 +8245,53 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-{% assign i_start = 0 %}
-{% assign i_end = 20 %}
+
 {% assign scr_start = 1100.0 %}
 {% assign scr_end = 950.0 %} 
+{% assign mgn_start = 67.0 %}
+{% assign mgn_end = 58.0 %} 
+
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
+{% assign i_start = 0 %}
+{% assign i_end = i_end | round %}
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+
+{% assign scr_start = 950.0 %}
+{% assign scr_end = 850.0 %} 
 {% assign mgn_start = 58.0 %}
 {% assign mgn_end = 54.0 %} 
 
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
 {% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
 {% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
-
-{% for i in (i_start..i_end) %}
-  {% assign scr_dec = i | times: scr_inc %}
-  {% assign scr_size = scr_start | minus: scr_dec %} 
-  {% assign scr_size = scr_size | round %} 
-  {% assign mgn_dec = i | times: mgn_inc %}
-  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
-  
-  
-	@media only screen and (max-width: {{ scr_size }}px) {
-	  .site-nav-custom-right {
-		padding-right: {{ mgn_size }}%;
-	  }
-	}
-  
-{% endfor %}
-
+{% assign i_end = scr_inc | divided_by: fidelity %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign i_end = i_end | minus: 1.0 %}
+{% assign scr_inc = scr_inc | divided_by: i_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_end %} 
 {% assign i_start = 0 %}
-{% assign i_end = 20 %}
-{% assign scr_start = 950.0 %}
-{% assign scr_end = 850.0 %} 
-{% assign mgn_start = 54.0 %}
-{% assign mgn_end = 50.0 %} 
-
-{% assign i_tot = i_end | minus: i_start %} 
-{% assign i_tot = i_tot | times: 1.0 %} 
-{% assign scr_inc = scr_start | minus: scr_end %} 
-{% assign scr_inc = scr_inc | divided_by: i_tot %} 
-{% assign mgn_inc = mgn_start | minus: mgn_end %} 
-{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+{% assign i_end = i_end | round %}
 
 {% for i in (i_start..i_end) %}
   {% assign scr_dec = i | times: scr_inc %}
@@ -8044,6 +8308,46 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
 	}
   
 {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
