@@ -138,8 +138,9 @@
       {% when 5 %}
         {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
       {% endcase %}
-
-      <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+	  
+      {% comment %} style="margin-right: -50%; left: 50%;" {% endcomment %}
+      <ul  class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
             {% render 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}

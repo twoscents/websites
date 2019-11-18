@@ -7617,7 +7617,7 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   border-bottom: none;
   text-transform: uppercase;
   //this definitely ^ looks better and is a project for another time
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 #header_nav_liquid:active,
@@ -7632,15 +7632,17 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   border-bottom: 1px solid;
   text-shadow: 0 0 5px #69727b;
 }
-/*
+
 .site-header__icon{
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 .site-header__icon:hover{
-  box-shadow: 0 0 5px #69727b;
+  filter: drop-shadow(0px 0px 3px #69727b);
+  filter: drop-shadow(0px 0px 6px #69727b);
+  //box-shadow: 0 0 5px #69727b;
 }
-*/
+
 
 /*
 .liquid-array-nav:hover{
@@ -7650,7 +7652,41 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
 }
 */
 
+
 .hero-inner-custom {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  padding: $section-spacing 0;
+  z-index: 2;
+}
+
+
+.hero-inner-custom2 {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  padding: $section-spacing 0;
+  z-index: 2;
+}
+
+.hero-inner-custom3 {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  padding: $section-spacing 0;
+  z-index: 2;
+}
+
+.hero-inner-custom_txt_l {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  padding: $section-spacing 0;
+  z-index: 2;
+}
+
+.hero-inner-custom_txt_r {
   position: relative;
   display: table-cell;
   vertical-align: bottom;
@@ -7668,13 +7704,61 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   margin-bottom: -60px;
 }
 
+.hero-image-text-container2 {
+  @include clearfix();
+  max-width: 100%;
+  text-align: center !important;
+  vertical-align: bottom;
+  margin-bottom: -35px;
+}
+
+.hero-image-text-container3 {
+  @include clearfix();
+  max-width: 100%;
+  text-align: center !important;
+  vertical-align: bottom;
+  margin-bottom: -35px;
+}
+
+.hero-image-text-container_txt_l {
+  @include clearfix();
+  max-width: 75%;
+  text-align: center !important;
+  float: left;
+  vertical-align: bottom;
+  margin-left: 20px;
+  margin-bottom: -20px;
+}
+
+.hero-image-text-container_txt_r {
+  @include clearfix();
+  max-width: 75%;
+  text-align: center !important;
+  float: right;
+  vertical-align: bottom;
+  margin-right: 20px;
+  margin-bottom: -20px;
+}
+
 .hero-image-text-big, 
-.hero-image-text-small {
+.hero-image-text-small,
+.hero-image-text-big2, 
+.hero-image-text-small2,
+.hero-image-text-big3, 
+.hero-image-text-small3,
+.hero-image-text-big_txt_l, 
+.hero-image-text-small_txt_l,
+.hero-image-text-big_txt_r, 
+.hero-image-text-small_txt_r {
   //color: $color-overlay-title-text;
   //color: #fff;
 }
 
-.hero-image-text-big {
+.hero-image-text-big,
+//.hero-image-text-big2,
+//.hero-image-text-big3,
+.hero-image-text-big_txt_l,
+.hero-image-text-big_txt_r {
   //color: #fff;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -7687,7 +7771,20 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   text-shadow: 0 0 6px #FFFFFF;
 }
 
-.hero-image-text-small {
+.hero-image-text-big2,
+.hero-image-text-big3 {
+  //color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-shadow: 0 0 6px #999;
+}
+
+
+.hero-image-text-small,
+.hero-image-text-small2,
+.hero-image-text-small3,
+.hero-image-text-small_txt_l,
+.hero-image-text-small_txt_r {
   color: #fff !important;
   //font-size: 1.8em;
   //original value
@@ -7695,7 +7792,11 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   //text-shadow: 0 0 6px #FFFFFF;
 }
 
-#hero-image-text-big-id {
+#hero-image-text-big-id,
+//#hero-image-text-big-id2,
+//#hero-image-text-big-id3,
+#hero-image-text-big-id_txt_l,
+#hero-image-text-big-id_txt_r {
   //color: #fff;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -7711,7 +7812,21 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   text-shadow: 0 0 5px #000;
 }
 
-#hero-image-text-small-id {
+#hero-image-text-big-id2,
+#hero-image-text-big-id3 {
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: $color-overlay-title-text !important;
+  text-shadow: 1 1 20px #999;
+  text-shadow: -1 -1 20px #999;
+  text-shadow: 0 0 8px #000;
+}
+
+#hero-image-text-small-id,
+#hero-image-text-small-id2,
+#hero-image-text-small-id3,
+#hero-image-text-small-id_txt_l,
+#hero-image-text-small-id_txt_r {
   color: #fff !important;
   //font-size: 1.8em;
   //original value
@@ -7798,22 +7913,10 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
 
 
 
-
-
-
-
-
-
-
-
-
-
 //fidelity should be how many pixels apart you want each change
-
 
 {% assign fidelity = 20.0 %}
 
-
 //responsive header font sizes
 //accomplished through a lot of @media only screen css
 //created by a liquid loop
@@ -7849,14 +7952,18 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
 {% endfor %}
 
-//responsive header font sizes
+//responsive .hero-image-text-big2 font sizes
 //accomplished through a lot of @media only screen css
 //created by a liquid loop
 
+.hero-image-text-big2{
+  font-size: 3.2em;
+}
+
 {% assign scr_start = 1500.0 %}
 {% assign scr_end = 850.0 %} 
-{% assign txt_start = 1.2 %}
-{% assign txt_end = 0.8 %} 
+{% assign txt_start = 3.2 %}
+{% assign txt_end = 1.8 %} 
 
 {% assign scr_inc = scr_start | minus: scr_end %} 
 {% assign txt_inc = txt_start | minus: txt_end %} 
@@ -7877,21 +7984,25 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
   
 	@media only screen and (max-width: {{ scr_size }}px) {
-      #header_nav_liquid{
+      .hero-image-text-big2{
         font-size: {{ txt_size }}em;
       }
 	}
   
 {% endfor %}
 
-//responsive header font sizes
+//responsive .hero-image-text-big3 font sizes
 //accomplished through a lot of @media only screen css
 //created by a liquid loop
 
+.hero-image-text-big3{
+  font-size: 3.2em;
+}
+
 {% assign scr_start = 1500.0 %}
 {% assign scr_end = 850.0 %} 
-{% assign txt_start = 1.2 %}
-{% assign txt_end = 0.8 %} 
+{% assign txt_start = 3.2 %}
+{% assign txt_end = 1.8 %} 
 
 {% assign scr_inc = scr_start | minus: scr_end %} 
 {% assign txt_inc = txt_start | minus: txt_end %} 
@@ -7912,7 +8023,7 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
   
   
 	@media only screen and (max-width: {{ scr_size }}px) {
-      #header_nav_liquid{
+      .hero-image-text-big3{
         font-size: {{ txt_size }}em;
       }
 	}
@@ -8211,7 +8322,7 @@ a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo
 	  }
 	}
   
-{% endfor %}
+{% endfor %} 
 
 
 {% assign scr_start = 1200.0 %}

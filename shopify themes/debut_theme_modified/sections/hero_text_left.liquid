@@ -9,6 +9,103 @@
     .hero-{{ section.id }} {
       height: {{- wrapper_height -}}vw !important;
     }
+
+  {% if template == 'index' %}
+    {% comment %}
+    unfortunately this all has to be here rather than theme.scss.liquid because in order for it to 
+    autofit to any character length title, it has to have access to section.settings.title.size and 
+    section.settings.text.size and they don't work from theme.scss.liquid
+
+    none of the style here is generated unless the page is the index (home) page, and likewise with 
+    the different added classes
+	
+    the idea behind this is that
+
+    {screensize} * 0.75 = {textsize}em * {character count} * {magic number}
+
+	so
+
+    ({screensize} * 0.75) / ({character count} * {textsize}em) = {magic number}
+
+    this can be used for other stuff, anything you want to fit the space that the initial
+    setup text size and character count filled
+    so once you've found the magic number for the span
+
+    ({screensize} * 0.75) / ({character count} * {magic number}) = {textsize}em
+	
+	fidelity should be how many pixels apart you want each change
+
+    {% endcomment %}
+	
+	{% assign fidelity = 20.0 %}
+    {% assign scr_start = 2000.0 %}
+    {% assign scr_end = 360.0 %} 
+
+    {% assign scr_inc = scr_start | minus: scr_end %} 
+	{% assign i_end = scr_inc | divided_by: fidelity %}
+	{% assign i_end = i_end | minus: 1.0 %}
+    {% assign scr_inc = scr_inc | divided_by: i_end %} 
+    {% assign i_start = 0 %}
+	{% assign i_end = i_end | round %}
+
+    {% assign char_c1 = section.settings.title.size %}
+    {% assign char_c1 = char_c1 | times: 1.0 %}
+
+    {% comment %}
+    //the magic number for the big text
+    //use the text size you intially found to your liking at the tested character
+    //count, this will be used for different character counts
+    //in this case 4.8 at 1900 screen, 28 characters for non-uppercase
+    //and 4.8 at 1900 screen, 28 characters for full uppercase
+    {% endcomment %}
+
+    {% assign magic_n1 = 1425.0 | divided_by: 28.0 %}
+    {% assign magic_n1 = magic_n1 | divided_by: 4.05 %}
+
+    {% assign char_c2 = section.settings.text.size %}
+    {% assign char_c2 = char_c2 | times: 1.0 %}
+
+    {% comment %}
+    //the magic number for the small text
+    //use the text size you intially found to your liking at the tested character
+    //count, this will be used for different character counts
+    //in this case 1.8 at 1900 screen, 59 characters
+    {% endcomment %}
+
+    {% assign magic_n2 = 1425.0 | divided_by: 59.0 %}
+    {% assign magic_n2 = magic_n2 | divided_by: 1.8 %}
+
+    {% for i in (i_start..i_end) %}
+      {% assign scr_dec = i | times: scr_inc %}
+      {% assign scr_size = scr_start | minus: scr_dec %} 
+      {% assign scr_size = scr_size | round %} 
+      {% assign calc1 = scr_size | times: 0.75 %} 
+      {% assign calc2 = char_c1 | times: magic_n1 %} 
+      {% assign txt_size = calc1 | divided_by: calc2 %}
+
+        @media only screen and (max-width: {{ scr_size }}px) {
+
+          .hero-image-text-big_txt_l {
+            font-size: {{ txt_size }}em;
+          }
+        }
+
+      {% assign calc2 = char_c2 | times: magic_n2 %} 
+      {% assign txt_size = calc1 | divided_by: calc2 %}
+
+        @media only screen and (max-width: {{ scr_size }}px) {
+
+          .hero-image-text-small_txt_l {
+            font-size: {{ txt_size }}em;
+          }
+        }
+
+    {% endfor %}
+  {% endif %}
+
+
+
+
   {%- endstyle -%}
 {%- endif -%}
 <div data-section-id="{{ section.id }}" data-section-type="hero-section">
@@ -68,7 +165,7 @@
          id="Hero-{{ section.id }}"
          data-layout="{{ section.settings.hero_layout }}"
          {%- if section.settings.image -%}
-         data-bgset="{% include 'bgset', image: section.settings.image %}"
+         data-bgset="{% render 'bgset', image: section.settings.image %}"
          data-sizes="auto"
          data-parent-fit="cover"
          style="background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.image | img_url: '300x300' }});"
@@ -78,13 +175,13 @@
         {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
       </div>
     {%- endif -%}
-      <div class="hero__inner">
-        <div class="page-width text-center">
+      <div class="{% if template == 'index' %} hero-inner-custom_txt_l {% else %} hero__inner {% endif %}">
+        <div class="{% if template == 'index' %} hero-image-text-container_txt_l {% else %} page-width text-center{% endif %}">
           {%- if section.settings.title != blank -%}
-            <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
+            <h2 {% if template == 'index' %}id="hero-image-text-big-id_txt_l"{% endif %} class="{% if template == 'index' %} hero-image-text-big_txt_l {% elsif section.settings.text_size == 'large' %} mega-title--large mega-title {% endif %} h1">{{ section.settings.title | escape }}</h2>
           {%- endif -%}
           {%- if section.settings.text != blank -%}
-            <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+            <div {% if template == 'index' %}id="hero-image-text-small-id_txt_l"{% endif %} class="{% if template == 'index' %} hero-image-text-small_txt_l {% elsif section.settings.text_size == 'large' %} mega-subtitle--large mega-subtitle {% endif %} rte-setting">{{ section.settings.text }}</div>
           {%- endif -%}
           {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
             {%- capture ariaLabel -%}
@@ -121,7 +218,7 @@
   "name": {
     "da": "Billede med tekstoverlejring",
     "de": "Foto mit überlegtem Text",
-    "en": "Image with text overlay",
+    "en": "Image text overlay_txt_l",
     "es": "Imagen con texto",
     "fi": "Kuva päällä olevalla tekstillä",
     "fr": "Image avec texte",
@@ -617,7 +714,7 @@
       "default": {
         "da": "Billede med tekstoverlejring",
         "de": "Foto mit überlegtem Text",
-        "en": "Image with text overlay",
+        "en": "Image text overlay_txt_l",
         "es": "Imagen con texto",
         "fi": "Kuva päällä olevalla tekstillä",
         "fr": "Image avec superposition de texte",
@@ -738,7 +835,7 @@
       "name": {
         "da": "Billede med tekstoverlejring",
         "de": "Foto mit überlegtem Text",
-        "en": "Image with text overlay",
+        "en": "Image text overlay_txt_l",
         "es": "Imagen con texto",
         "fi": "Kuva päällä olevalla tekstillä",
         "fr": "Image avec superposition de texte",
