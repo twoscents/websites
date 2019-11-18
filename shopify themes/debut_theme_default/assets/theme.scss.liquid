@@ -7566,3 +7566,519 @@ $transition-controls-video: color 0.2s $ease-transition, background-color 0.2s $
   }
 }
 
+
+
+
+/*----------------------START OF ADDED CSS---------------------------*/
+
+/*
+a.site-header__logo-image.site-header__logo-image--centered.h2.site-header__logo{
+		  width = 40%;
+		}
+
+*/
+
+//The next two are responsible for loading stuff for desktop or mobile
+//most of the stuff for mobile is default theme code
+  @media only screen and (max-width: 768px) {
+  .show-desktop {
+    display: none !important;
+  }
+}
+
+  @media only screen and (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+//makes the site header sticky, both in desktop and mobile
+  .site-header {
+  position: fixed; 
+  z-index: 1; 
+  top: 0;
+}
+
+.site-nav-custom {
+  position: relative;
+  padding: 0;
+  margin: 0px 0;
+}
+
+.hero-inner-custom {
+  position: relative;
+  display: table-cell;
+  vertical-align: bottom;
+  padding: $section-spacing 0;
+  z-index: 2;
+}
+
+.hero-image-text-container {
+  @include clearfix();
+  max-width: 75%;
+  text-align: center !important;
+  float: right;
+  vertical-align: bottom;
+  margin-right: 20px;
+  margin-bottom: -60px;
+}
+/*
+.hero-image-text-big {
+  font-size: 4.8em;
+}
+
+.hero-image-text-small {
+  font-size: 1.8em;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//responsive header font sizes
+//accomplished through a lot of @media only screen css
+//created by a liquid loop
+
+#header_nav_liquid{
+  font-size: 1.2em;
+  padding: 3px 2px;
+}
+
+{% assign i_start = 0 %}
+{% assign i_end = 200 %}
+{% assign scr_start = 1500.0 %}
+{% assign scr_end = 850.0 %} 
+{% assign txt_start = 1.2 %}
+{% assign txt_end = 0.8 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign txt_inc = txt_start | minus: txt_end %} 
+{% assign txt_inc = txt_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign txt_dec = i | times: txt_inc %}
+  {% assign txt_size = txt_start | minus: txt_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+      #header_nav_liquid{
+        font-size: {{ txt_size }}em;
+      }
+	}
+  
+{% endfor %}
+
+//responsive header right side right margin
+//accomplished through a lot of @media only screen css
+//created by a liquid loop
+
+.site-nav-custom-right {
+    padding-right: 60%;
+}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 1800.0 %}
+{% assign scr_end = 1700.0 %} 
+{% assign mgn_start = 63.0 %}
+{% assign mgn_end = 67.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 1700.0 %}
+{% assign scr_end = 1600.0 %} 
+{% assign mgn_start = 67.0 %}
+{% assign mgn_end = 70.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 1600.0 %}
+{% assign scr_end = 1550.0 %} 
+{% assign mgn_start = 70.0 %}
+{% assign mgn_end = 72.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 1550.0 %}
+{% assign scr_end = 1500.0 %} 
+{% assign mgn_start = 72.0 %}
+{% assign mgn_end = 75.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 10 %}
+{% assign scr_start = 1500.0 %}
+{% assign scr_end = 1450.0 %} 
+{% assign mgn_start = 75.0 %}
+{% assign mgn_end = 76.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 10 %}
+{% assign scr_start = 1450.0 %}
+{% assign scr_end = 1400.0 %} 
+{% assign mgn_start = 76.0 %}
+{% assign mgn_end = 72.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 10 %}
+{% assign scr_start = 1400.0 %}
+{% assign scr_end = 1350.0 %} 
+{% assign mgn_start = 72.0 %}
+{% assign mgn_end = 69.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 1350.0 %}
+{% assign scr_end = 1200.0 %} 
+{% assign mgn_start = 69.0 %}
+{% assign mgn_end = 62.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 1200.0 %}
+{% assign scr_end = 1100.0 %} 
+{% assign mgn_start = 62.0 %}
+{% assign mgn_end = 58.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 1100.0 %}
+{% assign scr_end = 950.0 %} 
+{% assign mgn_start = 58.0 %}
+{% assign mgn_end = 54.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+{% assign i_start = 0 %}
+{% assign i_end = 20 %}
+{% assign scr_start = 950.0 %}
+{% assign scr_end = 850.0 %} 
+{% assign mgn_start = 54.0 %}
+{% assign mgn_end = 50.0 %} 
+
+{% assign i_tot = i_end | minus: i_start %} 
+{% assign i_tot = i_tot | times: 1.0 %} 
+{% assign scr_inc = scr_start | minus: scr_end %} 
+{% assign scr_inc = scr_inc | divided_by: i_tot %} 
+{% assign mgn_inc = mgn_start | minus: mgn_end %} 
+{% assign mgn_inc = mgn_inc | divided_by: i_tot %} 
+
+{% for i in (i_start..i_end) %}
+  {% assign scr_dec = i | times: scr_inc %}
+  {% assign scr_size = scr_start | minus: scr_dec %} 
+  {% assign scr_size = scr_size | round %} 
+  {% assign mgn_dec = i | times: mgn_inc %}
+  {% assign mgn_size = mgn_start | minus: mgn_dec %} 
+  
+  
+	@media only screen and (max-width: {{ scr_size }}px) {
+	  .site-nav-custom-right {
+		padding-right: {{ mgn_size }}%;
+	  }
+	}
+  
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
