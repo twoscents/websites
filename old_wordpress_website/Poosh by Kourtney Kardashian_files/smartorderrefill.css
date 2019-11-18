@@ -1,0 +1,756 @@
+/* .primary-content {
+    float: right;
+    margin-left: -1px;
+    padding: 0 0 20px;
+    position: relative;
+    width: 75%;
+} */
+.primary-focus .primary-content {
+    border: 0 none;
+    float: left;
+    margin: 0;
+    width: 709px;
+}
+.full-width .primary-content {
+    border: 0 none;
+    width: 100%;
+}
+/* .page-content .primary-content {
+    padding-left: 29px;
+} */
+#secondary {
+    width: 210px;
+}
+.hide {
+    display: none;
+}
+.content-asset .credit_card_save_text {
+    margin-left: 24%;
+    width: 55%;
+}
+.payment-method .save_card {
+    display: none;
+}
+.ui-dialog #refillOption label {
+    font-weight: normal;
+    text-align: left;
+}
+.ui-dialog.reoredr-dialog {
+    padding: 25px 30px;
+}
+.ui-dialog.reoredr-dialog .ui-widget-header  {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dae2e4;
+}
+.ui-dialog.reoredr-dialog #orderview, .ui-dialog.reoredr-dialog #subscriptionview {
+	padding: 0;
+}
+.ui-dialog.reoredr-dialog .ui-icon-closethick {
+	top: -8px;
+	left: 10px;
+}
+.ui-dialog.reoredr-dialog .quentity select {
+	padding: 0 22px;
+}
+.ui-dialog.reoredr-dialog .order-sec_wrapper {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #dae2e4;
+}
+.ui-dialog.reoredr-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+	margin: 0 !important;
+}
+.ui-dialog.reoredr-dialog .ui-dialog-buttonpane button, 
+.ui-dialog.cancelall-dialog .ui-dialog-buttonpane button,
+.ui-dialog.cancelsubscription-dialog .ui-dialog-buttonpane button {
+	background: #383c3e;
+	color: #ffffff;
+	width: 137px;
+	height: 50px;
+	line-height: 50px;
+	text-transform: uppercase;
+    font-family: "TheMixC4s-Bold", Arial;
+    border-width: 0;
+    letter-spacing: 1px;
+}
+.ui-dialog.reoredr-dialog .ui-dialog-buttonpane button:first-child,
+.ui-dialog.cancelall-dialog .ui-dialog-buttonpane button:first-child,
+.ui-dialog.cancelsubscription-dialog .ui-dialog-buttonpane button:first-child {
+	color: #000000;
+	background: #ffffff;
+}
+.ui-dialog.reoredr-dialog #orderview .order-section.oreplen-product-list, 
+.ui-dialog.reoredr-dialog #subscriptionview .order-section.oreplen-product-list  {
+	display: table;
+	width: 100%;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper > div {
+	width: 25%;
+	float: left;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper {
+	float: left;
+	width: 100%;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper:not(:first-child){
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: 1px solid #dae2e4; 
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper .prod-order-refill-section {
+	float: none;
+    width: 65%;
+    display: table;
+    margin: 0 auto 32px;
+    clear: both;
+    height: 32px;
+    line-height: 32px;
+}
+.ui-dialog.reoredr-dialog select {
+	line-height: 32px
+}
+#subscriptionview .order-section .prod-order-refill-section p.title {
+	width: auto;
+	float: left;
+	margin-right: 30px;
+	font-family: "TheMixC4s-Bold", Arial;
+}
+.ui-dialog.reoredr-dialog select {
+	font-family: "TheMixC4s-Bold", Arial;
+}
+#subscriptionview .prod-order-refill-section .group-change-refill {
+	margin: 0;
+	float: left;
+}
+#subscriptionview .prod-order-refill-section .group-change-refill select {
+	padding: 0 35px;
+	box-sizing: border-box;
+}
+.prod-order-refill-section .time-number {width: 95px;float: left;margin-right: 10px;}
+.prod-order-refill-section .time-date {width: 127px;float: left;}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper .pro-details {
+	width: 50%;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper .pro-details .plitemimage {
+    width: 110px;
+    float: left;
+    padding-right: 10px;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .plitemimage.device-only {
+	display: none;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .pro-details .plitemimage.desktop-only {
+	display: block;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .pro-details .prod-description {
+    width: 52%;
+    float: left;
+    margin-top: 12px;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .price {
+	text-align: right;
+    box-sizing: border-box;
+    padding-right: 12px;
+    margin-top: 12px;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .quentity {
+	padding: 0 4em;
+    box-sizing: border-box;
+    margin-top: 12px;
+}
+.ui-dialog.reoredr-dialog .midle-section-overlay .prod-description span {float: left;clear: both;font-size: 10px;}
+.ui-dialog.reoredr-dialog .midle-section-overlay .prod-description span.productName {font-family: "TheMixC4s-Bold", Arial;font-size: 12px;}
+.ui-dialog.reoredr-dialog .midle-section-overlay .prod-description span.product-pmsge {padding: 10px 0;}
+.ui-dialog.reoredr-dialog .midle-section-overlay .prod-description span.product-pmsge-sku,
+.ui-dialog.reoredr-dialog .midle-section-overlay .prod-description span.product-pmsge
+ {font-family: TheMixC4s-Plain,Arial;}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .payment-wrappr {
+    width: 100%;
+    float: left;
+    text-transform: uppercase;
+}
+.ui-dialog.reoredr-dialog .price, .ui-dialog.reoredr-dialog .order-section-shipmethod {
+	font-family: "TheMixC4s-Bold", Arial;
+}
+
+.ui-dialog.reoredr-dialog #orderview .order-section.oreplen-product-list .payment-wrappr > div, 
+.ui-dialog.reoredr-dialog #subscriptionview .order-section.oreplen-product-list .payment-wrappr > div {
+	width: 50%;
+    float: right;
+    clear: both;
+    border-bottom: none;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .payment-wrappr .h-line {
+    width: 100%;
+    height: 1px;
+    background: #dae2e4;
+    float: left;
+    margin: 5px 0;
+}
+.ui-dialog.reoredr-dialog .order-section.oreplen-product-list > form {
+	border-bottom: 1px solid #dae2e4;
+}
+.ui-dialog.reoredr-dialog #orderview .order-section.oreplen-product-list .midle-section-overlay, .ui-dialog.reoredr-dialog #subscriptionview .order-section.oreplen-product-list .midle-section-overlay {
+	display: inline-block;
+	width: 100%;
+}
+.ui-dialog.reoredr-dialog #orderview .order-section.oreplen-product-list .payment-wrappr > div {
+	border: none !important;
+}
+.ui-dialog.reoredr-dialog #orderview .order-section, .ui-dialog.reoredr-dialog #subscriptionview .order-section {
+	float: left;
+	width: 40%;
+	border: none;
+	letter-spacing: 0.4px;
+}
+.ui-dialog.reoredr-dialog .order-section .changeaddress {
+	text-decoration: underline;
+}
+.ui-dialog.reoredr-dialog #orderview .order-section.shipping-status, .ui-dialog.reoredr-dialog #subscriptionview .order-section.shipping-status {
+	width: 20%;
+}
+.ui-dialog.cancelall-dialog .ui-dialog-title,
+.ui-dialog.cancelsubscription-dialog .ui-dialog-title {
+	font-size: 16px;
+    text-align: center;
+    margin-top: 14px;
+}
+@media  screen and (min-width: 768px) and (max-width: 1030px) { 
+	.ui-dialog.reoredr-dialog {
+		width: 90% !important;
+	}
+}
+@media  screen and (min-width: 960px) and (max-width: 1030px) {
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .quentity {
+		padding: 0 5em;
+	}
+}
+@media  screen and (min-width: 768px) and (max-width: 959px) {
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .quentity {
+		padding: 0 3em;
+	}
+}
+@media  screen and (max-width: 767px) { 
+	.ui-dialog #modify-smart-order-refill h1 {
+		font-size: 17px;
+	}
+	.ui-dialog.reoredr-dialog #orderview .order-section, .ui-dialog.reoredr-dialog #subscriptionview .order-section,
+	.ui-dialog.reoredr-dialog #orderview .order-section.shipping-status, 
+	.ui-dialog.reoredr-dialog #subscriptionview .order-section.shipping-status,
+	.ui-dialog.reoredr-dialog #orderview .order-section.oreplen-product-list .payment-wrappr > div, 
+	.ui-dialog.reoredr-dialog #subscriptionview .order-section.oreplen-product-list .payment-wrappr > div,
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper .prod-order-refill-section,
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .pro-details .prod-description { 
+		width: 100%;
+	}
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .plitemimage.device-only {
+		display: block;
+		width: 100%;
+	}
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .pro-details .plitemimage.desktop-only {
+		display: none;
+	} 
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper .quentity {
+		width: 50%;
+		padding: 0 0 0 4em;
+	}
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-detail-wrapper .price {
+		width: 50%;
+	}
+	.ui-dialog.reoredr-dialog .order-section.oreplen-product-list .midle-section-overlay .prod-order-refill-section {
+		margin-top: 10px;
+		float: left;
+	}
+}
+.ui-dialog.reoredr-dialog #orderview .order-section p.title {
+	width: 100%;	
+    text-transform: uppercase;	
+    font-family: "TheMixC4s-Bold", Arial;
+}
+.ui-dialog #refillOption input #submit {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.ui-dialog #refillOption select {
+    width: inherit;
+    right: 44%;
+    top: 10px;
+    height : 1.5em;
+    width: 130px;
+    height: 33px;
+    line-height: 30px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.ui-dialog #modify-smart-order-refill {
+    margin-bottom: 1.5em;
+    overflow: hidden;
+}
+.ui-dialog #modify-smart-order-refill input {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    float: left;
+}
+.ui-dialog #modify-smart-order-refill h1 {
+    text-align: center;
+    width: 100%;
+    font-family: "TheMixC4s-Bold", Arial;
+    font-size: 24px;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+}
+@media  screen and (max-width: 767px) { 
+	.ui-dialog #modify-smart-order-refill h1 {
+		font-size: 17px;
+	}
+}
+.ui-dialog #modify-smart-order-refill #refillOption {width: 100%; float: left;}
+.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice{width: 100%; float: none; margin: 0 auto; max-width: 420px; display: table;}
+.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice input[type="radio"], 
+.ui-dialog #modify-smart-order-refill #refillOption .option.second-choice input[type="radio"] {
+	background: url("../images/saje-sprites.png") no-repeat;
+	background-position: 0 -850px;
+	width: 18px;
+    height: 18px;
+    margin: 10px 10px 0 0;
+}
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) { 
+	.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice input[type="radio"], 
+	.ui-dialog #modify-smart-order-refill #refillOption .option.second-choice input[type="radio"] { 
+	   	background: url("../images/saje-sprites@2x.png") no-repeat 0 -850px;;
+	   	background-size: 99px 1250px;
+	}
+}
+.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice input[type="radio"]:checked, .ui-dialog #modify-smart-order-refill #refillOption .option.second-choice input[type="radio"]:checked {
+	background-position: -50px -850px;
+}
+.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice label { text-align: left; font-size: 13px; text-transform: uppercase; font-weight: 700 !important; margin: 10px 0 0px 0; letter-spacing: 1px;}
+.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice .select-group{width: 29%; float: left; margin-left: 20px;}
+.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice .osftooltip {display: none;}
+.ui-dialog #modify-smart-order-refill #refillOption .option.first-choice .osftooltip a {background: #dde6ea;width: 100%;float: left;text-align: center;border-radius: 9px;}
+.ui-dialog #modify-smart-order-refill #refillOption .option.second-choice {width: 100%;float: none;margin: 10px auto;max-width: 420px;display: table;}
+.ui-dialog #modify-smart-order-refill #refillOption .option.second-choice label { text-align: left; font-size: 13px; text-transform: uppercase; font-weight: 700 !important; margin: 10px 0 0px 0; letter-spacing: 1px;}
+.ui-dialog .ui-dialog-content {
+    padding: 0;
+    width: 90% !important;
+    margin: 0 auto;
+}
+#message_wrapper {
+	width: 100%;
+	float: left;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+}
+#message_wrapper a,
+#message_wrapper p {
+    color: #990000;;
+}
+#message_wrapper p {
+	margin: 30px 0 20px;
+}
+/*for PDP*/
+.smart-order-refill-options {
+    width: 100%; float: left;
+}
+.smart-order-refill-wrapper {display: table;width: 100%;}
+.smart-order-refill-wrapper input[type="radio"] {
+    background: url("../images/saje-sprites.png") no-repeat 0 -849px;
+	width: 18px;
+	height: 18px;
+} 
+@media (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) { 
+   	.smart-order-refill-wrapper input[type="radio"] {
+   		background: url("../images/saje-sprites@2x.png") no-repeat;
+   		background-size: 99px 1250px;
+   		background-position: 0 -849px;
+   	}
+}
+.smart-order-refill-wrapper input[type="radio"]:checked {
+    background-position: -50px -849px;
+}
+.smart-order-refill-options {display: block;margin: 15px 0;float: none;}
+.smart-order-refill-options .one-time-purchase {margin: 0 0 15px 0; width: 100%; float: left;}
+.smart-order-refill-options .every-time-purchase {line-height: 32px; width: auto; float: left;position: relative;margin-bottom: 12px;}
+.smart-order-refill-options .every-time-purchase .rs-msg {position: absolute;bottom: 0;top: 25px;left: 30px; font-family: "TheMixC4s-Plain", Arial;line-height: 16px;width: 70%;font-size: 10px;}
+.smart-order-refill-wrapper .smart-order-refill-period {float: left;width: 60%;margin-top: 0;}
+.smart-order-refill-wrapper .smart-order-refill-period .osftooltip {display:inline-block;height: 32px;line-height: 32px;margin-right: 8%;width: 16px;text-align: center;}
+.smart-order-refill-wrapper .smart-order-refill-period .osftooltip a {background: #dae2e4;width: 20px;height: 20px;border-radius: 50%;padding: 1px 6px;}
+.pt_product-details .Pdp-size-qty-main .smart-order-refill-wrapper .smart-order-refill-period select {height: 32px;}
+.pt_product-details .Pdp-size-qty-main .smart-order-refill-wrapper .smart-order-refill-period select:nth-child(2) {width: 75%;height: 33px;text-align: center;padding: 5px 13px;float: left;margin-right: 5px;text-transform: uppercase; letter-spacing: 1px;}
+.pt_product-details .Pdp-size-qty-main .smart-order-refill-wrapper .smart-order-refill-period select:nth-child(3) {width: 75%;height: 33px;text-align: center;padding: 5px 13px;float: left;margin-right: 5px;text-transform: uppercase; letter-spacing: 1px;}
+.pt_product-details .Pdp-size-qty-main .smart-order-refill-wrapper .smart-order-refill-period select:first-child {margin-right: 5px;width: 52.3%;padding: 5px; height: 33px; text-transform: uppercase; letter-spacing: 1px;}
+.p_reodredr_service {margin: 0 auto;display: table;}
+.p_reodredr_service button {width: 266px;height: 48px;line-height: 48px;text-align: center;letter-spacing: 2px;font-size: 13px;padding: 0;}
+.Re-order-del-msg {width: 76%;float: right;margin-top: 10px;margin-right: 2px;}
+@media  screen and (min-width: 768px) {
+	.desktop-rerorder-service {display: block !important;}
+	.mobile-reorder-service {display: none !important;}
+}
+@media  screen and (max-width: 767px) {
+	.smart-order-refill-options .every-time-purchase {width: auto; float: left;}
+	.smart-order-refill-wrapper .smart-order-refill-period {width: 44%; margin-top: 0px;}
+	.pt_product-details .Pdp-size-qty-main .smart-order-refill-wrapper .smart-order-refill-period select:nth-child(2) {width: 100%;}
+	.pt_product-details .Pdp-size-qty-main .smart-order-refill-wrapper .smart-order-refill-period select:nth-child(3) {width: 100%;}
+	.pt_product-details .Pdp-size-qty-main .smart-order-refill-wrapper .smart-order-refill-period select:first-child {width: 106px;}
+	.smart-order-refill-wrapper .smart-order-refill-period .osftooltip {margin-right: 0;}
+	.mobile-reorder-service {display: block !important;}
+	.desktop-rerorder-service {display: none !important;}
+	#message_wrapper p {
+		padding: 0px 25px;
+	    box-sizing: border-box;
+	    text-align: left;
+	}
+}
+@media  screen and (max-width: 375px) {
+	.smart-order-refill-wrapper .smart-order-refill-period {width: 40%;}
+}
+@media  screen and (max-width: 767px) { 
+	.smart-order-refill-wrapper .smart-order-refill-period .osftooltip {position: absolute; right: -20%;} 
+}
+.smart-order-refill-options .every-time-purchase label {}
+.smart-order-refill-options .every-time-purchase label p {margin: 0;}
+.smart-order-refill-options .every-time-purchase input {margin-top: 8px;}
+.smart-order-refill-options .smart-order-refill-period {width: 50%; float: left; margin: 0;}
+.smart-order-refill-options .smart-order-refill-period select {width: 71%; float: left; display: inline-block; padding: 7px 17%; height: 35px;position: relative; right: 0; top: 0;}
+.smart-order-refill-options .smart-order-refill-period .osftooltip {width: 10%; float: left; display: inline-block; margin: 8px 0 0 15px;}
+.smart-order-refill-options .smart-order-refill-period .osftooltip a {background: #dde6ea; width: 100%; float: left; text-align: center; border-radius: 9px;}
+.ui-dialog.pdp_overlay {width: 29.10% !important; text-align: center;}
+.ui-dialog.pdp_overlay .ui-dialog-content {width: 100% !important;}
+@media  screen and (min-width: 768px) and (max-width: 1023px) {
+	.ui-dialog.pdp_overlay {width: 61.20% !important;}	
+}
+@media  screen and (max-width: 767px) {
+	.ui-dialog.pdp_overlay {width: 90.40% !important;}
+}
+.ui-dialog.pdp_overlay .ui-dialog-titlebar-close {opacity: 1; right: -12px; top: -9px;}
+.ui-dialog.pdp_overlay .prsnl-reorder-heading {font-size: 24px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; max-width: 250px; width: 100%; margin: 0 auto 30px; font-family: "TheMixC4s-Bold", Arial;}
+.ui-dialog.pdp_overlay .prsnl-reorder-msg {width: 100%; max-width: 330px; margin: 0 auto 45px;}
+.ui-dialog.pdp_overlay .prsn-reorder-inf-link {width: 100%; float: left; letter-spacing: 0.5px;padding-bottom: 30px;}
+.ui-dialog.pdp_overlay .prsn-reorder-inf-link a {text-decoration: underline;}
+
+/*cart-overlay*/
+.ui-dialog.cart_modify_overlay #modify-smart-order-refill{width: 100% !important;}
+.ui-dialog.cart_modify_overlay #modify-smart-order-refill h1 {}
+.ui-dialog.cart_modify_overlay .formactions {text-align: center; width: 100%; float: left;}
+.ui-dialog.cart_modify_overlay .ui-dialog-titlebar-close {opacity: 1;}
+.ui-dialog.cart_modify_overlay .formactions button { width: 47.323%; height: 48px; letter-spacing: 1px;}
+.ui-dialog.cart_modify_overlay #modify-smart-order-refill select { padding: 5px 25% 5px 10%; height: 40px; border: 1px solid #383c3e; width: 100% !important; top: 0; right: 0; position: relative;text-transform: uppercase;letter-spacing: 1px;}
+.smart-order-refill-options label {
+    font-weight: normal;
+    display: inline-block;
+    margin-top: 0.85em;
+    max-width: 85%;
+}
+/*cart-page*/
+.Re-order-service {width: 100%; float: left;}
+.pt_checkout .Re-order-service {background: #dae2e4;padding: 0 24px 5px;box-sizing: border-box;margin-top: 15px;}
+.Re-order-service p {width: 100%;float: left; margin: 0;}
+.Re-order-service p.re-order-text { text-transform: uppercase; font-weight: bold; letter-spacing: 2px; margin: 15px 0 8px;}
+.Re-order-service p.re-order-subtext {margin-bottom: 8px;}
+.osfrefill a {text-decoration: underline;text-transform: uppercase;}
+.smart-order-refill-options label {margin: 0 0 0 13px; font-size: 13px; letter-spacing: 1px;}
+.smart-order-refill-options .or-cancel-edit-text {
+    position: relative;
+    left: 5%;
+}
+.smart-order-refill-options select {
+    width: inherit;
+    position: absolute;
+    right: 44%;
+    top: 10px;
+}
+.smart-order-refill-options input {
+    float: left;
+}
+.smart-order-refill-options .full-row {
+    vertical-align: middle;
+    padding-top: 1em;
+}
+.smart-order-refill-period {
+    position: relative;
+    left: 5%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+.smart-order-refill-period select {
+    width: inherit;
+    margin-left: 0;
+}
+#login {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+#login .ui-dialog-content {
+    padding: 0;
+    width: 90% !important;
+    margin: 0 auto;
+}
+ul.options_link {
+    list-style-type: none;
+    padding-left: 0;
+}
+ul.options_link li {
+    display: inline;
+}
+table.orders,
+table#subscriptions {
+    border: 2px solid white;
+    border-collapse: separate;
+    border-spacing: 2px;
+    margin-left: -2px;
+    width: 97%;
+}
+table.orders th,
+table#subscriptions th {
+    background-color: #ccc;
+    padding: 1em;
+}
+/* table.orders tbody tr:nth-child(odd),
+table#subscriptions tbody tr:nth-child(odd) {
+    background-color: #F0F0F0;
+} */
+#orderview,
+#subscriptionview {
+    z-index: 99;
+    padding: 2em 0 4em 0;
+}
+#orderview .header,
+#orderview .order-section,
+#orderview .payment-section,
+#subscriptionview .header,
+#subscriptionview .order-section,
+#subscriptionview .payment-section {
+    border-bottom: 1px solid black;
+}
+#orderview .payment-section 
+#orderview .last,
+#subscriptionview .last {
+    border: none;
+}
+#orderview .title,
+#orderview .payment-section p,
+#subscriptionview .title,
+#subscriptionview .payment-section p, .ui-dialog.reoredr-dialog .ui-dialog-title {
+    font-family: "TheMixC4s-Bold", Arial;
+}
+#orderview .payment-section p,
+#orderview .payment-section p.total,
+#subscriptionview .payment-section p,
+#subscriptionview .payment-section p.total {
+    display: inline-block;
+    width: 84%;
+}
+#orderview .payment-section p.tax,
+#subscriptionview .payment-section p.tax {
+    font-weight: normal;
+    display: block;
+    font-family: "TheMixC4s-Plain", Arial;
+}
+#orderview .order-section,
+#subscriptionview .order-section {
+    padding: 1em 0;
+}
+#orderview .order-section p.title,
+#subscriptionview .order-section p.title {
+    margin: 0;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: "TheMixC4s-Bold", Arial;
+}
+#orderview .order-section .submit,
+#subscriptionview .order-section .submit {
+    position: relative;
+    bottom: 2.85em;
+    left: 90%;
+}
+#orderview .order-section table.product,
+#subscriptionview .order-section table.product {
+    margin-top: 1em;
+}
+#orderview .content-section,
+#subscriptionview .content-section {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#orderview .content-section table,
+#subscriptionview .content-section table {
+    margin-left: -1em;
+    margin-bottom: 0.5em;
+}
+#orderview .content-section table tr td:first-child,
+#subscriptionview .content-section table tr td:first-child {
+    width: 6em;
+    padding: 0.4em 0;
+    padding-left: 1em;
+}
+#orderview .content-section table td,
+#subscriptionview .content-section table td {
+    padding: 0 3em 0 1em;
+    max-width: 10%;
+    vertical-align: middle;
+}
+#orderview .content-section table td span.name,
+#subscriptionview .content-section table td span.name {
+    font-weight: normal;
+}
+#orderview .content-section table td.phone-number,
+#subscriptionview .content-section table td.phone-number {
+    width: 7em;
+}
+#orderview #actions,
+#subscriptionview #actions {
+    display: inline-block;
+    position: relative;
+    top: 0.75em;
+}
+#orderview #actions p,
+#subscriptionview #actions p {
+    margin: 0.2em 0;
+}
+#addresschange {
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    padding: 1em 1.5em;
+}
+#addresschange .form-row {
+    margin: 0;
+}
+#addresschange #editprofile {
+    margin: 1em auto;
+}
+#addresschange #editAddressForm {
+    margin: 0;
+}
+#addresschange #editAddressForm #dialogApplyBtn {
+    position: absolute;
+    right: 24%;
+    display: none;
+}
+#addresschange #editAddressForm .select label {
+    padding: 0;
+}
+#addresschange .keynote {
+    margin-bottom: 1em;
+}
+#addresschange + .ui-dialog-buttonpane .ui-dialog-buttonset {
+    margin-top: -2em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+#orderview + .ui-dialog-buttonpane .ui-dialog-buttonset,
+#subscriptionview + .ui-dialog-buttonpane .ui-dialog-buttonset {
+    margin: -2em 1em 3em 0;
+}
+#cancel-all-dialog h3 {
+    width: 95%;
+    margin: 2em auto 0;
+}
+
+.credit_card_expiration_warning{
+	font-weight: normal;
+    color: #E14D65;
+}
+.credit_card_expiration_warning.date-expire {
+	float: left;
+    margin-top: -20px;
+}
+@media screen and (max-width: 1024px) {
+.credit_card_expiration_warning.date-expire {margin:10px 0 0 0;}	
+}
+.select-group {
+    float: left;
+}
+.group-change-refill {
+    float: right;
+    margin: -42px 50% 10px 10px;
+}
+
+.pt_order .primary-content .next-order-wrpr, .pt_order .primary-content #my_subscriptions {width: 74.131%;float: left;padding: 0;}
+.pt_order .primary-content .next-order {width: 100%;margin: 0 auto;}
+.pt_order .primary-content .next-order tbody tr {padding-top: 15px;border-bottom: 1px solid #dae2e4;padding-bottom: 27px; display: table-row;}
+.pt_order .primary-content .next-order tbody tr a {text-decoration: underline;}
+.next-order h3.sone-text {text-align: center;}
+.next-order .orders {width: 100%; display: table;border-collapse: collapse !important;border-bottom: 1px solid #dae2e4;margin-bottom: 30px;}
+.next-order .orders .products_data, table#subscriptions .products_data {font-family: "TheMixC4s-Bold", Arial;font-size: 12px;}
+.next-order .orders .products_data .products_datawrper, table#subscriptions .products_data .products_datawrper {display: table;}
+.next-order .orders .products_data .products_datawrper:not(:first-child), table#subscriptions .products_data .products_datawrper:not(:first-child) {margin-top: 30px;}
+.next-order .orders .products_data span, table#subscriptions .products_data span {font-family: "TheMixC4s-Plain", Arial;float: left;font-size: 10px;clear: both;text-transform: uppercase}
+.next-order .orders .products_data span.product-name, table#subscriptions .products_data span.product-name {font-family: "TheMixC4s-Bold", Arial;font-size: 12px;letter-spacing: 1px;}
+.next-order .orders .products_data span.product-pmsge, table#subscriptions .products_data span.product-pmsge {padding: 15px 0;width: 57%;}
+.next-order .orders .products_data span.value, table#subscriptions .products_data span.value {clear: none;margin-left: 5px;}
+.next-order .orders th {text-transform: uppercase;padding-top: 18px;padding-bottom: 18px; background: #dae2e4;letter-spacing: 1px;font-size: 10px;font-family: "TheMixC4s-Bold", Arial;}
+.next-order .orders .order-date {width: 35.5%;}
+.next-order .wrper-header {display: inline-block;margin: 1em 0;width: 100%;}
+.next-order .wrper-header .nextorder-text {float: left;margin:0;font-family: "TheMixC4s-Bold", Arial;font-size: 16px;text-transform: uppercase;letter-spacing: 1px;}
+.next-order .viewall-reorders, .next-order .cancel-reorders {float: right;margin-top: 4px;padding-right: 6px;}
+.next-order .cancel-reorders a {color: #a7a9aa;}
+.next-order .viewall-reorders.device-only {display: none;}
+.next-order .viewall-reorders.desktop-only {display: block;}
+.next-order .viewall-reorders a , .next-order .cancel-reorders a {text-decoration: underline;}
+.next-order .wrper-header .options_link {width: auto;float: right;margin: 5px 0 0;}
+.next-order .orders .products {width: 44%;}
+.pt_order .primary-content #my_subscriptions > h3 {width: 100%;margin: 0 auto;font-family: "TheMixC4s-Bold", Arial;font-size: 16px;text-transform: uppercase;letter-spacing: 1px;}
+.pt_order .primary-content #my_subscriptions #subscriptions {width: 100%;display: table;border-collapse: collapse !important;margin: 0 auto 30px;border-bottom: 1px solid #dae2e4;}
+.pt_order .primary-content #my_subscriptions #subscriptions th{text-transform: uppercase;padding-top: 18px;padding-bottom: 18px; background: #dae2e4;letter-spacing: 1px;font-size: 10px;font-family: "TheMixC4s-Bold", Arial;}
+.pt_order .primary-content #my_subscriptions #subscriptions tbody tr {padding-top: 15px;border-bottom: 1px solid #dae2e4;padding-bottom: 27px; display: table-row;}
+.pt_order .primary-content #my_subscriptions #subscriptions tbody tr a {text-decoration: underline;}
+.pt_order .primary-content #my_subscriptions #subscriptions tbody tr p.cancel-renewal {margin: 30px 0;}
+
+@media screen and (min-width: 1024px) {
+	.next-order-wrpr .options_link.only-desktop {display: block;}
+	.next-order-wrpr .options_link.only-mobile {display: none;}
+}
+@media screen and (max-width: 1024px) {
+	.pt_order .primary-content .next-order-wrpr, .pt_order .primary-content #my_subscriptions {width: 89%;}
+}
+@media screen and (max-width: 1023px) {
+	.pt_order .primary-content .next-order {width: 100%;}
+	.next-order .orders thead, .pt_order .primary-content #my_subscriptions #subscriptions thead {display: none;}
+	.next-order .orders {width: 100%;margin: 0 auto;}
+	.pt_order .primary-content .next-order tbody tr, .pt_order .primary-content #my_subscriptions #subscriptions tbody tr {display: inline-block;width: 100%;}
+	.next-order .orders tbody tr td, .pt_order .primary-content #my_subscriptions #subscriptions tbody tr td {width: 44%; padding:5px 0; margin: 0 auto; text-align: left;display: table;}
+	.next-order .orders tbody tr td:last-child, .pt_order .primary-content #my_subscriptions #subscriptions tbody tr td:last-child {margin: 20px auto;}
+	.pt_order .primary-content #my_subscriptions {width: 100%;}
+	.pt_order .primary-content #my_subscriptions #subscriptions thead {display: none;}
+	.pt_order .primary-content #my_subscriptions #subscriptions tbody tr td p {margin: 0;}
+	
+	.next-order .wrper-header .nextorder-text, .pt_order .primary-content #my_subscriptions > h3 {width: 100%;height: 45px;line-height: 45px;text-align: center;background: #dae2e4;letter-spacing: 1px;}
+	.pt_order .primary-content #my_subscriptions > h3 {padding: 0;margin: 20px auto 0;text-transform: uppercase;}
+	.pt_order .primary-content .next-order-wrpr, .pt_order .primary-content #my_subscriptions {width: 100%;}
+	.next-order-wrpr .options_link.only-desktop {display: none;}
+	.next-order-wrpr .options_link.only-mobile {display: block;text-align: right;}
+	.next-order .viewall-reorders.device-only, .next-order .cancel-reorders {display: block;width: 100%;text-align: center;margin: 26px 0 20px;}
+	.next-order .viewall-reorders.desktop-only {display: none;}
+	.next-order h3.sone-text {text-align: center;border-bottom: 1px solid #dae2e4;}
+}
+@media screen and (max-width: 960px) {
+	.next-order .orders .products_data, .pt_order .primary-content #my_subscriptions #subscriptions tbody tr td.products_data {margin-top: 10px;}
+}
+@media screen and (max-width: 767px) {
+	.pt_order .primary-content .next-order-wrpr, .pt_order .primary-content #my_subscriptions {padding: 0 28px;box-sizing: border-box;}
+	.next-order .orders tbody tr td, .pt_order .primary-content #my_subscriptions #subscriptions tbody tr td {width: 80%;}
+}
+@media screen and (max-width: 360px) {
+	#orderview .payment-section p,
+	#orderview .payment-section p.total,
+	#subscriptionview .payment-section p,
+	#subscriptionview .payment-section p.total {
+	    display: inline-block;
+	    width: 80%;
+	}
+	.ui-dialog.reoredr-dialog .ui-dialog-buttonpane button, 
+	.ui-dialog.cancelall-dialog .ui-dialog-buttonpane button, 
+	.ui-dialog.cancelsubscription-dialog .ui-dialog-buttonpane button {
+		width: 113px;
+	}
+	.prod-order-refill-section .time-date {
+		width: 123px;
+	}
+}

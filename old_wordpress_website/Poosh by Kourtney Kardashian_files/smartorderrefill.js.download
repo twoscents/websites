@@ -1,0 +1,505 @@
+/* Start of Util section ***************************************************************************************/
+
+function SmartOrderRefill(){
+}
+
+SmartOrderRefill.limitCharacters = function () {
+    $('form').find('textarea[data-character-limit]').each(function(){
+        var characterLimit = $(this).data("character-limit");
+        var charCountHtml = String.format(app.resources.CHAR_LIMIT_MSG,
+                                '<span class="char-remain-count">'+characterLimit+'</span>',
+                                '<span class="char-allowed-count">'+characterLimit+'</span>');
+        var charCountContainer = $(this).next('div.char-count');
+        if (charCountContainer.length===0) {
+            charCountContainer = $('<div class="char-count"/>').insertAfter($(this));
+        }
+        charCountContainer.html(charCountHtml);
+        // trigger the keydown event so that any existing character data is calculated
+        $(this).change();
+    });
+}
+
+SmartOrderRefill.creatContainer = function(selector){
+    var $target, id;
+    if(jQuery.type(selector) === "string"){
+        if(selector.indexOf('#')===0){
+            $target = $(selector);
+        } else {
+            $target = $('#' + selector);
+        }
+    }else if (selector instanceof jQuery) {
+        $target = selector;
+    }
+
+    if ($target.length === 0) {
+        if ($target.selector && $target.selector.indexOf('#')===0) {
+            id = $target.selector.substr(1);
+            $target = $('<div>').attr('id', id).appendTo('body');
+        }
+    }
+
+    return $target;
+}
+
+/* End of Util section ***************************************************************************************/
+
+
+/* Start of Account section ***************************************************************************************/
+
+SmartOrderRefill.initAddressChangeForm = function(target, urlview) {
+
+    $(document).off('click', '.changeaddress').on('click', '.changeaddress', function(e) {
+
+        e.preventDefault();
+        var url = $(this).attr("href");
+        var $container = SmartOrderRefill.creatContainer('#addresschange');
+
+        var options = {
+            'autoOpen': true,
+            'bgiframe': true,
+            'modal': true,
+            'emptyOnClose': false,
+            'width': '400px',
+            'title': 'Change address',
+            'buttons': {
+                "Cancel": function() {
+                    $(this).dialog( "close" );
+                },
+                "Save": function() {
+                    e.preventDefault();
+                    var $form = $('#editAddressForm');
+                    $form.validate();
+
+                    setTimeout(function(){
+                        if (!$form.valid()){
+                            return;
+                        }
+                        $.ajax({
+                            type: 'POST',
+                            url: $form.attr('action'),
+                            data: $form.serialize()
+                        }).done(function (response) {
+                            if (response && response.success) {
+                                $(target).load(urlview, function () {
+                                    SmartOrderRefill.limitCharacters();
+                                });
+                                $container.dialog("close");
+                            } else {
+                                alert('Unable to change the address.');
+                            }
+                        }).fail(function(xhr, textStatus) {
+                            alert("Unexpected error.");
+                        });
+
+                    }, 1000);
+                }
+            }
+        };
+
+        $container.load(url, function () {
+            $container.dialog(options);
+        }.bind(this));
+    });
+}
+
+/**
+ * @private
+ * @function
+ * @description initialize dialog for order view
+ */
+SmartOrderRefill.initOrderView = function() {
+    $('.orders .view').on('click', function(e) {
+        e.preventDefault();
+        var url        = $(this).attr('href'),
+            $container = SmartOrderRefill.creatContainer('#orderview');
+
+        $container.load(url, function() {
+            SmartOrderRefill.limitCharacters();
+
+            $container.dialog({
+                autoOpen : true,
+                modal    : true,
+                width    : "600px",
+                title    : "Order",
+                buttons  : {
+                    "Cancel"    : function() {
+                        $(this).dialog("close");
+                    },
+                    "Save"      : function() {
+                        $.ajax({
+                            type    : 'POST',
+                            url     : Urls.changeProducts,
+                            data    : $('#edit_product').serialize(),
+                            success : function(response) {
+                                if (response && response.success) {
+                                    $container.dialog("close");
+                                    window.location = Urls.manageOrders;
+                                } else {
+                                    $container.html(response);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+
+            SmartOrderRefill.initAddressChangeForm('#orderview', url);
+        });
+    });
+}
+
+/**
+ * @private
+ * @function
+ * @description initialize dialog for subscription view
+ */
+SmartOrderRefill.initSubscriptionView = function() {
+
+    $('#subscriptions .view').on('click', function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var $container = SmartOrderRefill.creatContainer('#subscriptionview');
+
+        $container.load(url, function(){
+            SmartOrderRefill.limitCharacters();
+            $container.dialog({
+                autoOpen: true,
+                modal: true,
+                width: "770px",
+                title: "MY RE-ORDERS",
+                dialogClass: "reoredr-dialog subscriptionview-dialog",
+                buttons: {
+                    "Cancel" : function() {
+                        $(this).dialog("close");
+                    },
+                    "Save": function() {
+                        $.ajax({
+                            type: 'POST',
+                            url: Urls.changeProducts,
+                            data: $('#edit_product').serialize(),
+                            success: function (response) {
+                                if (response && response.success) {
+                                    $container.dialog("close");
+                                    window.location = Urls.manageOrders;
+                                } else {
+                                    $container.html(response);
+                                }
+                            }
+                        });
+
+                    }
+                }
+            });
+            SmartOrderRefill.initAddressChangeForm('#subscriptionview', url);
+        });
+    });
+}
+
+/**
+ * @private
+ * @function
+ * @description initialize dialog for subscription view
+ */
+SmartOrderRefill.initUpdateSubscriptionProduct = function() {
+
+    $(document).on('click', '.update-item', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: Urls.updateSubscriptionProduct,
+            data: $('#edit_product').serialize()
+        }).done(function (response) {
+            if (!response || !response.success) {
+                alert('Unable to update product quantity.');
+            }
+        }).fail(function(xhr, textStatus) {
+            alert("Unexpected error.");
+        });
+    });
+}
+
+/**
+ * @private
+ * @function
+ * @description initialize credit card expiration warning
+ */
+ SmartOrderRefill.initCreditCardExpirationWarning = function() {
+
+    $('body .pt_checkout').on('change', "#dwfrm_billing_paymentMethods_creditCard_expiration_month, #dwfrm_billing_paymentMethods_creditCard_expiration_year", function(){
+        var month = $('#dwfrm_billing_paymentMethods_creditCard_expiration_month').val();
+        var year = $('#dwfrm_billing_paymentMethods_creditCard_expiration_year').val();
+        if(typeof month !== "undefined" && typeof year !== "undefined" && month && year){
+            var expirationDate = new Date(new Date(year,month).setDate(0));
+            var currentDate = new Date();
+            var nextYear = new Date(currentDate.getFullYear() + 1,currentDate.getMonth(),currentDate.getDate() - 1);
+
+            if((expirationDate - nextYear) <= 0){
+                $('.credit_card_expiration_warning').show();
+            }else{
+                $('.credit_card_expiration_warning').hide();
+            }
+        }
+    });
+}
+
+/**
+ * @private
+ * @function
+ * @description initialize cancel all orders request dialog
+ */
+SmartOrderRefill.initCancelOrdersDialog = function() {
+
+    $('#cancel_all').on('click', function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var $container = SmartOrderRefill.creatContainer('#cancel-all-dialog');
+        $container.html("<h3>Are you sure you want to delete all of your orders?</h3>");
+        $container.dialog({
+            autoOpen: true,
+            modal : true,
+            title: "Delete all orders",
+            width: "400px",
+            dialogClass: "cancelall-dialog",
+            buttons: {
+                "CANCEL": function() {
+                    $(this).dialog("close");
+                },
+                "DELETE ORDERS": function() {
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        success: function (response) {
+                            if (response && response.success) {
+                                window.location = Urls.manageOrders;
+                            } else {
+                                alert('Unexpected error');
+                            }
+                        }
+                    });
+                    $(this).dialog("close");
+                }
+            }
+        });
+    });
+}
+
+SmartOrderRefill.initCancelSubscriptionDialog = function() {
+
+    $('.cancelsubscription').on('click', function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var $container = SmartOrderRefill.creatContainer('#cancel-all-dialog');
+        $container.html(Resources.SOR_DELETE_SUBS_CONFIRM_TEXT);
+        $container.dialog({
+            autoOpen: true,
+            modal : true,
+            //title: Resources.SOR_DELETE_SUBS_CONFIRM_TITLE,
+            width: '400px',
+            title: 'Cancel this and all subsequent orders',
+            dialogClass: "cancelsubscription-dialog",
+            buttons: {
+                "No": function() {
+                    $(this).dialog("close");
+                },
+                "Yes": function() {
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        success: function (response) {
+                            if (response && response.wait) {
+                                alert(Resources.SMARTORDERREFILL_CANCEL_MESSAGE);
+                                location.reload();
+                            } else {
+                                alert('Unexpected error');
+                            }
+                        }
+                    });
+                    $(this).dialog("close");
+                }
+            }
+        });
+    });
+}
+
+SmartOrderRefill.initOrderView = function() {
+    $('.orders .view').on('click', function(e) {
+        e.preventDefault();
+        var url        = $(this).attr('href'),
+        $container = SmartOrderRefill.creatContainer('#orderview');
+        var CurrentDateVal = $('#orderDateVal').text();
+        $container.load(url, function() {
+            SmartOrderRefill.limitCharacters();
+
+            $container.dialog({
+                autoOpen : true,
+                modal    : true,
+                width    : "770px",
+                title    : "Next Order "+CurrentDateVal,
+                dialogClass: "reoredr-dialog",
+                buttons  : {
+                    "Cancel" : function() {
+                        $(this).dialog("close");
+                    },
+                    "Save" : function() {
+                        $.ajax({
+                            type    : 'POST',
+                            url     : Urls.changeProducts,
+                            data    : $('#edit_product').serialize(),
+                            success : function(response) {
+                                if (response && response.success) {
+                                    $container.dialog("close");
+                                    window.location = Urls.manageOrders;
+                                } else {
+                                    $container.html(response);
+                                }
+                            }
+                        });
+                    }
+                }
+            });
+
+            SmartOrderRefill.initAddressChangeForm('#orderview', url);
+        });
+    });
+}
+/* End of Account section ***************************************************************************************/
+
+/* Start of Cart section ***************************************************************************************/
+
+SmartOrderRefill.initModifyRefill = function(){
+    $(document).on('click', '#modifyRefill', function (e) {
+        e.preventDefault();
+        var url = this.href;
+        var $container = SmartOrderRefill.creatContainer('#modify-smart-order-refill');
+        $container.load(url, function(){
+            SmartOrderRefill.limitCharacters();
+            $container.dialog({
+                modal : true,
+                width: "600px",
+                dialogClass: 'refill-dialog'
+            })
+            // force to load the selected value of sor subscriptions
+            $('.select-everydelivery').trigger('change');
+        });
+    });
+    $(document).on('submit','#dwfrm_smartorderrefill', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('action');
+        var cartShow = Urls.cartShow;
+        $.post(url, $(this).serialize(),function (response) {
+            if (response && response.success) {
+                window.location = cartShow;
+            } else {
+                alert('Unexpected error');
+            }
+        });
+    });
+}
+
+SmartOrderRefill.initRemoveRefill = function(){
+    $(document).on('click', '#removeRefill', function (e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var cartShow = Urls.cartShow;
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (response) {
+                if (response && response.success) {
+                    window.location = cartShow;
+                } else {
+                    alert('Unexpected error');
+                }
+            }
+        });
+    });
+}
+
+SmartOrderRefill.initLoginFromCart = function(){
+    $(document).on('click', '#message_wrapperOSF a', function (e) {
+        e.preventDefault();
+        var $container = SmartOrderRefill.creatContainer('#login');
+        $container.load(Urls.loginFromCartPage, function(){
+            SmartOrderRefill.limitCharacters();
+            $container.dialog({
+                modal : true,
+                width: "800px"
+            });
+        });
+    });
+}
+
+/* End of Cart section ***************************************************************************************/
+
+/* Start of Product section ***************************************************************************************/
+
+SmartOrderRefill.initializePdp = function() {
+    $(document).on('click', '#pdpMain .product-add-to-cart select#OsfSorDeliveryInterval', function() {
+        $('input[name="hasOsfSmartOrderRefill"]').val(['true']);
+    });
+
+    $('input[name=hasOsfSmartOrderRefill]').change(function() {
+        hideOrShowSchedules($(this).val());
+    });
+
+    hideOrShowSchedules($('input[name=hasOsfSmartOrderRefill]:checked').val());
+
+    /**
+    * Show or hide the schedule select based on user selection.
+    */
+    function hideOrShowSchedules(value) {
+        var divPeriod = $('.smart-order-refill-period');
+
+        /*if (value === 'true') {
+            divPeriod.attr('style', 'visibility:visible');
+        } else {
+            divPeriod.attr('style', 'visibility:hidden');
+        }*/
+    }
+    $('.smart-order-refill-period select, .smart-order-refill-options .every-time-purchase label, .smart-order-refill-options .every-time-purchase input').on('click',function(){
+        $('.smart-order-refill-options .every-time-purchase').find('input').attr('checked','checked').css('background-position', '-50px -849px');
+        $('.smart-order-refill-options .one-time-purchase').find('input').removeAttr('checked');
+    });
+    $('.smart-order-refill-options .one-time-purchase label , .smart-order-refill-options .one-time-purchase input').on('click',function(){
+        $('.smart-order-refill-options .every-time-purchase').find('input').removeAttr('checked').css('background-position', '0 -849px');
+        $('.smart-order-refill-options .one-time-purchase').find('input').attr('checked','checked');
+    });
+    $('#pdpMain').on('change', '.select-everydelivery', function () {
+        if ($(this).val() === 'month') {
+            $('select[name=OsfSorDeliveryWeekInterval]').hide();
+            $('select[name=OsfSorDeliveryInterval]').show();
+        } else {
+            $('select[name=OsfSorDeliveryInterval]').hide()
+            $('select[name=OsfSorDeliveryWeekInterval]').show();
+        }
+    });
+}
+
+/* End of Product section ***************************************************************************************/
+
+/**
+ * @private
+ * @function
+ * @description Binds events to the cart page (edit item's details, bonus item's actions, coupon code entry)
+ */
+SmartOrderRefill.initialize = function() {
+
+    SmartOrderRefill.initAddressChangeForm();
+    SmartOrderRefill.initSubscriptionView();
+    SmartOrderRefill.initOrderView();
+    SmartOrderRefill.initCancelOrdersDialog();
+    SmartOrderRefill.initCancelSubscriptionDialog();
+    SmartOrderRefill.initCreditCardExpirationWarning();
+    SmartOrderRefill.initUpdateSubscriptionProduct();
+
+    SmartOrderRefill.initModifyRefill();
+    SmartOrderRefill.initRemoveRefill();
+    SmartOrderRefill.initLoginFromCart();
+
+    SmartOrderRefill.initializePdp();
+}
+
+$(document).ready(function() {
+    SmartOrderRefill.initialize();
+});
